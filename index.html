@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Update Player</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen"
+            href="https://fontlibrary.org/face/source-code-pro"
+            type="text/css"/>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <h1>Update Player Version</h1>
+        <section class="bcls-section">
+            <h2 id="infoinput">Player info input</h2>
+
+            <p>Player ID: <input class="checkForValue" id="player_id_input"
+                    type="text" size="40" name="player_id" /></p>
+
+            <p>Account ID: <input class="checkForValue" id="account_id_input"
+                    type="text" size="40" name="account_id" /></p>
+
+            <p>Player Version: <input class="checkForValue"
+                    id="player_version_input" type="text" size="40"
+                    name="player_version" placeholder="Version to update"/></p>
+            <p><button id="update_player" class="bcls-button">Update Player
+                    Version</span></p>
+        </section>
+
+        <section class="bcls-section">
+            <h2 id="jsonText">JSON response</h2>
+
+            <p>Below is the JSON data returned by the player version update:</p>
+            <pre><code id="create_response">Response will appear here...</code></pre>
+            <p>Below is the JSON data returned by the player publish:</p>
+
+            <pre><code id="publish_response">Response will appear here...</code></pre>
+        </section>
+
+        <section class="bcls-section">
+            <h2 id="embedded_player">Processed response</h2>
+            <p>
+                <button class="bcls-button" id="preview_player">Preview the
+                    Player</button>
+            </p>
+
+            <p>Note publishing is asynchrounous; if the player doesn't
+                immediately appear, wait a few seconds and try again or go to
+                your Video Cloud Studio and review the player. </p>
+
+            <div id="player_embedded"></div>
+        </section>
+        <script src="js/index.js"></script>
+    </body>
+</html>
