@@ -4,6 +4,8 @@ let BCLS = (function (window, document) {
         player_code,
         player_id_input = document.getElementById('player_id_input'),
         account_id_input = document.getElementById('account_id_input'),
+        client_id_input = document.getElementById('client_id_input'),
+        client_secrect_input = document.getElementById('client_secrect_input'),
         player_version_input = document.getElementById('player_version_input'),
         update_player = document.getElementById('update_player'),
         create_response = document.getElementById('create_response'),
@@ -35,10 +37,12 @@ let BCLS = (function (window, document) {
             endpoint,
             responseDecoded;
 
-        if (player_id_input.value.length > 0 && account_id_input.value.length > 0 && player_version_input.value.length > 0) {
+        if (client_id_input.value.length > 0 && client_secrect_input.value.length > 0 && player_id_input.value.length > 0 && account_id_input.value.length > 0 && player_version_input.value.length > 0) {
 
             options.player_id_input = player_id_input.value;
             options.account_id_input = account_id_input.value;
+            options.client_id = client_id_input.value;
+            options.client_secret = client_secrect_input.value;
             options.player_version_input = player_version_input.value;
 
         }
@@ -90,6 +94,8 @@ let BCLS = (function (window, document) {
      * send API request to the proxy
      * @param {Object} options for the request
      * @param {String} options.url the full API request URL
+      * @param {String} options.client_id client id for the account( default is in the proxy)
+     * @param {String} options.client_secret client secret for the account(default is in the proxy)
      * @param {String = "GET", "POST", "PATCH", "PUT", "DELETE"} requestData[options.requestType = "GET"] HTTP type for the request
      * @param {String} options.proxyURL proxyURL to send the request to
      *@param {Function} [callback] callback function that will process the response
