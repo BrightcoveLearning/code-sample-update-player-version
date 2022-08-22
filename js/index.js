@@ -6,7 +6,6 @@ let BCLS = (function (window, document) {
         account_id_input = document.getElementById('account_id_input'),
         client_id_input = document.getElementById('client_id_input'),
         client_secrect_input = document.getElementById('client_secrect_input'),
-        player_version_input = document.getElementById('player_version_input'),
         update_player = document.getElementById('update_player'),
         create_response = document.getElementById('create_response'),
         publish_response = document.getElementById('publish_response'),
@@ -37,14 +36,15 @@ let BCLS = (function (window, document) {
             endpoint,
             responseDecoded;
 
-        if (client_id_input.value.length > 0 && client_secrect_input.value.length > 0 && player_id_input.value.length > 0 && account_id_input.value.length > 0 && player_version_input.value.length > 0) {
+        if (client_id_input.value.length > 0 && client_secrect_input.value.length > 0 && player_id_input.value.length > 0 && account_id_input.value.length > 0) {
 
             options.player_id_input = player_id_input.value;
             options.account_id_input = account_id_input.value;
             options.client_id = client_id_input.value;
             options.client_secret = client_secrect_input.value;
-            options.player_version_input = player_version_input.value;
 
+        }else{
+          alert('Enter data in all fields');
         }
 
         options.proxyURL = proxyURL;
@@ -57,7 +57,7 @@ let BCLS = (function (window, document) {
                 requestBody.player = {};
                 requestBody.player.template = {};
                 requestBody.player.template.locked = false;
-                requestBody.player.template.version = options.player_version_input;
+                requestBody.player.template.version = '6.65.3';
 
                 options.requestBody = JSON.stringify(requestBody);
 
